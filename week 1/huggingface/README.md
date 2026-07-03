@@ -45,17 +45,34 @@
 | 이상치 탐지 | 평균 밝기 < 30 제거 | ✅ |
 | 이상치 탐지 | 객체 면적 < 10% 제거 (OTSU threshold 기반) | ✅ |
 
+### 프로젝트 구조
+
+```
+week 1/
+├── requirements.txt          ← 공통 패키지 의존성
+├── git/                      ← 핵심 과제: OpenCV 픽셀 처리
+│   ├── red.py                # HSV 빨간색 검출
+│   ├── sample.jpg            # 테스트 이미지
+│   └── red_filtered.jpg      # 결과물
+└── huggingface/              ← 추가 과제: 데이터셋 전처리
+    ├── dataset.py             # Food101 로드 + pandas 탐색
+    ├── image_preprocessing.py # 전처리 파이프라인
+    ├── save_raw.py            # 원본 이미지 5장 저장
+    ├── data/                  # 원본 Food101 이미지 5장
+    └── preprocessed_samples/  # 전처리 + 증강 결과물 20장
+```
+
 ### 제출 항목
 
 | 파일 | 역할 |
 |---|---|
-| `red.py` | 빨간색 HSV 검출 → `red_filtered.jpg` 저장 |
-| `dataset.py` | HuggingFace `ethz/food101` 데이터셋 로드 및 정보 출력 |
-| `image_preprocessing.py` | 전체 전처리 파이프라인 (resize → grayscale → blur → augment → outlier detection) |
-| `save_raw.py` | Food101 원본 이미지 5장을 `data/`에 저장 |
-| `preprocessed_samples/` | 전처리 + 증강된 이미지 20장 (5개 샘플 × 4종) |
-| `data/` | 원본 Food101 이미지 5장 |
-| `requirements.txt` | 패키지 의존성 (datasets, opencv-python, numpy) |
+| `git/red.py` | 빨간색 HSV 검출 → `red_filtered.jpg` 저장 |
+| `huggingface/dataset.py` | HuggingFace `ethz/food101` 데이터셋 로드 + pandas 분석 |
+| `huggingface/image_preprocessing.py` | 전체 전처리 파이프라인 (resize → grayscale → blur → augment → outlier) |
+| `huggingface/save_raw.py` | Food101 원본 이미지 5장 저장 |
+| `huggingface/preprocessed_samples/` | 전처리 + 증강된 이미지 20장 (5개 샘플 × 4종) |
+| `huggingface/data/` | 원본 Food101 이미지 5장 |
+| `requirements.txt` | 패키지 의존성 (datasets, opencv-python, numpy, pandas) |
 
 ---
 

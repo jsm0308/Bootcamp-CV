@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 from datasets import load_dataset
 
-subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "../requirements.txt"])
 
 # ============================================================
 #  1. 데이터 로드
@@ -14,7 +14,7 @@ ds = load_dataset("ethz/food101", split="train")
 label_names = ds.features["label"].names
 
 # ============================================================
-#  2. 전처리 함수들
+#  2. 전처리 함수
 # ============================================================
 
 def resize_224(image):

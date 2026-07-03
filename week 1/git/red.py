@@ -1,3 +1,9 @@
+import subprocess
+import sys
+
+# 필요한 패키지 자동 설치
+subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "../requirements.txt"])
+
 import cv2
 import numpy as np
 
