@@ -470,10 +470,14 @@ BUILDERS = {
     1: build_week1,
 }
 
+DEFAULT_OUTPUT = {
+    1: "week 1/presentation.pptx",
+}
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate assignment PPT")
     parser.add_argument("--week", type=int, default=1, help="Which week (1-4)")
-    parser.add_argument("-o", "--output", default="presentation.pptx")
+    parser.add_argument("-o", "--output", default=None, help="Custom output path")
     args = parser.parse_args()
 
     builder = BUILDERS.get(args.week)
@@ -481,7 +485,9 @@ if __name__ == "__main__":
         print(f"ERROR: week {args.week} not implemented yet.")
         exit(1)
 
+    output = args.output or DEFAULT_OUTPUT.get(args.week, "presentation.pptx")
+
     prs, new_slide = _init()
     builder(new_slide)
-    prs.save(args.output)
-    print(f"DONE: {args.output} (week {args.week})")
+    prs.save(output)
+    print(f"DONE: {output} (week {args.week})")
