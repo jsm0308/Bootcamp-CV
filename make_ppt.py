@@ -269,7 +269,7 @@ def build_week1(new_slide):
         title="1차 과제 결과 보고서",
         subtitle="Git을 활용한 코드 관리 및 픽셀 단위 이미지 처리 실습",
         meta=["코멘토 직무부트캠프 Computer Vision",
-              "베어곰 멘토  |  2026.07"])
+              "장승민 멘티  |  베어곰 멘토  |  2026.07"])
 
     # ── Slide 2: Overview (Background + Topic + Requests) ──
     content_slide(new_slide,
@@ -333,8 +333,16 @@ def build_week1(new_slide):
             ("  uint8에서 255+255=510 overflow 방지", 14, False, GRAY),
         ],
         code_block=[
-            ("import cv2, numpy as np", GRAY),
+            ("import cv2", GRAY),
+            ("import numpy as np", GRAY),
+            ("", None),
+            ("# 이미지 로드", GRAY),
             ("image = cv2.imread('sample.jpg')", GRAY),
+            ("if image is None:", GRAY),
+            ("    print('오류 ...')", GRAY),
+            ("    exit()", GRAY),
+            ("", None),
+            ("# BGR → HSV 변환", GRAY),
             ("hsv = cv2.cvtColor(image,", GRAY),
             ("          cv2.COLOR_BGR2HSV)", GRAY),
             ("", None),
@@ -346,11 +354,14 @@ def build_week1(new_slide):
             ("mask1 = cv2.inRange(hsv, ...)", GRAY),
             ("mask2 = cv2.inRange(hsv, ...)", GRAY),
             ("mask = cv2.bitwise_or(m1, m2)", GRAY),
+            ("", None),
             ("result = cv2.bitwise_and(", GRAY),
-            ("    image,image, mask=mask)", GRAY),
+            ("    image, image, mask=mask)", GRAY),
+            ("", None),
             ("cv2.imwrite(", GRAY),
-            ("    'red_filtered.jpg',", GRAY),
-            ("    result)", GRAY),
+            ("    'red_filtered.jpg', result)", GRAY),
+            ("print('결과 저장 완료')", GRAY),
+            ("print('끝')", GRAY),
         ],
         images=images,
         note="POC: red.py는 추가 라이브러리 없이 OpenCV + NumPy만으로 구현")
