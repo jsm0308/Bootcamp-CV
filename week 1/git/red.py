@@ -1,35 +1,31 @@
-import subprocess
-import sys
-
-# 필요한 패키지 자동 설치
-subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "../requirements.txt"])
-
 import cv2
 import numpy as np
 
-# 이미지 로드
-image = cv2.imread('sample.jpg')
-if image is None:
-    print("오류: 'sample.jpg'를 읽을 수 없습니다.")
-    exit()
 
-# BGR → HSV 변환
-hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+def detect_red_pixels(input_path, output_path):
+    image = cv2.imread(input_path)
+    if image is None:
+        raise FileNotFoundError(f"이미지를 불러올 수 없습니다: {input_path}")
 
-# 빨간색 범위 (HSV 0° 부근 + 180° 부근)
-lower_red1 = np.array([0, 120, 70])
-upper_red1 = np.array([10, 255, 255])
-lower_red2 = np.array([170, 120, 70])
-upper_red2 = np.array([180, 255, 255])
+    # ponytail: HSV 공간에서 빨간색은 Hue 0°(≈360°) 경계에 걸려 있어
+    # 범위를 두 조각(0~10 + 170~180)으로 나눠야 전체 빨간색을 잡을 수 있다
+    hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-# 마스크 생성 및 합치기
-mask1 = cv2.inRange(hsv, lower_red1, upper_red1)
-mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
-mask = cv2.bitwise_or(mask1, mask2)
+    lower_red_near_0 = np.array([0, 120, 70])
+    upper_red_near_0 = np.array([10, 255, 255])
+    lower_red_near_180 = np.array([170, 120, 70])
+    upper_red_near_180 = np.array([180, 255, 255])
 
-# 빨간색만 추출
-result = cv2.bitwise_and(image, image, mask=mask)
+    mask_low = cv2.inRange(hsv, lower_red_near_0, upper_red_near_0)
+    mask_high = cv2.inRange(hsv, lower_red_near_180, upper_red_near_180)
+    red_mask = cv2.bitwise_or(mask_low, mask_high)
 
-# 결과 저장
-cv2.imwrite('red_filtered.jpg', result)
-print("결과 저장 완료: red_filtered.jpg")
+    # ponytail: bitwise_and는 mask가 1인 픽셀만 통과시키고 나머지는 0(검정)으로 만든다
+    red_only = cv2.bitwise_and(image, image, mask=red_mask)
+
+    cv2.imwrite(output_path, red_only)
+    print(f"결과 저장 완료: {output_path}")
+
+
+if __name__ == "__main__":
+    detect_red_pixels("sample.jpg", "red_filtered.jpg")
