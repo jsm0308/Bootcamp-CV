@@ -1,0 +1,38 @@
+{
+  "project": "Tested RGB-D to Point Cloud Converter",
+  "datasetDir": ".\\data\\external\\tum\\rgbd_dataset_freiburg1_xyz",
+  "frameIndex": 0,
+  "rgbFrames": 798,
+  "depthFrames": 798,
+  "associatedPairs": 797,
+  "selectedRgb": "rgb/1305031102.175304.png",
+  "selectedDepth": "depth/1305031102.160407.png",
+  "timestampDeltaSeconds": 0.014896869659423828,
+  "intrinsics": {
+    "fx": 517.3,
+    "fy": 516.5,
+    "cx": 318.6,
+    "cy": 255.3
+  },
+  "depthScale": 5000,
+  "width": 640,
+  "height": 480,
+  "totalPixels": 307200,
+  "validDepthPixels": 229875,
+  "invalidDepthPixels": 77325,
+  "validDepthRatio": 0.748291015625,
+  "sampledPoints": 57474,
+  "sampleStep": 2,
+  "zMin": 0.9025999903678894,
+  "zMax": 3.717400074005127,
+  "zMean": 1.4271831842985667,
+  "outputs": {
+    "ply": "outputs\\point_cloud_sample.ply",
+    "csv": "outputs\\point_cloud_sample.csv",
+    "depthPreview": "outputs\\depth_preview.pgm",
+    "depthPreviewBmp": "outputs\\depth_preview.bmp",
+    "projectionPreview": "outputs\\projection_preview.ppm",
+    "projectionPreviewBmp": "outputs\\projection_preview.bmp",
+    "metrics": "outputs\\metrics.json"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "rgb_frames": 798,
+  "depth_frames": 798,
+  "associated_pairs": 797,
+  "pair_delta_seconds": 0.01489687,
+  "width": 640,
+  "height": 480,
+  "valid_depth_pixels": 229875,
+  "invalid_depth_pixels": 77325,
+  "valid_depth_ratio": 0.74829102,
+  "sampled_points": 57474,
+  "z_min_m": 0.90259999,
+  "z_max_m": 3.71740007,
+  "z_mean_m": 1.42718318,
+  "max_reprojection_error_px": 0.00001907
+}

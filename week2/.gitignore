@@ -1,0 +1,18 @@
+# Local toolchains and build products
+build/
+tools/
+
+# Downloaded datasets are reproducible and too large for Git
+data/external/
+
+# Large point-cloud exports and legacy preview formats
+outputs/**/*.ply
+outputs/**/*.csv
+outputs/**/*.pgm
+outputs/**/*.ppm
+outputs/**/*.bmp
+
+# Python and PowerPoint temporary files
+__pycache__/
+*.pyc
+~$*.pptx
