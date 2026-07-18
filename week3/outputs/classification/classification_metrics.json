@@ -1,0 +1,14 @@
+{
+  "top1_accuracy": 1.0,
+  "macro_f1": 1.0,
+  "test_images": 5,
+  "classes": 5,
+  "model": "yolov8n-cls.pt",
+  "epochs_requested": 30,
+  "epochs_completed": 28,
+  "best_epoch": 13,
+  "early_stopping": true,
+  "image_size": 224,
+  "seed": 42,
+  "ultralytics_version": "8.4.100"
+}

@@ -1,0 +1,6 @@
+true,pred,confidence,path
+pill_00003_4222_16,pill_00003_4222_16,0.6337442994117737,/content/week3_classification/epillid_5class/test/pill_00003_4222_16/3886.jpg
+pill_00004_0800_85,pill_00004_0800_85,0.8347404599189758,/content/week3_classification/epillid_5class/test/pill_00004_0800_85/772.jpg
+pill_00006_0277_54,pill_00006_0277_54,0.5862286686897278,/content/week3_classification/epillid_5class/test/pill_00006_0277_54/861.jpg
+pill_00023_9350_07,pill_00023_9350_07,0.5434649586677551,/content/week3_classification/epillid_5class/test/pill_00023_9350_07/4806.jpg
+pill_00029_3159_13,pill_00029_3159_13,0.7019391655921936,/content/week3_classification/epillid_5class/test/pill_00029_3159_13/794.jpg
