@@ -1,0 +1,6 @@
+{
+  "confidence_threshold": 0.25,
+  "images": 23,
+  "count_mae": 0.521739,
+  "exact_match_rate": 0.565217
+}
