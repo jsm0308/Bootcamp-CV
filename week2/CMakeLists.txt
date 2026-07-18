@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(OpenCV REQUIRED)
 
-add_executable(rgbd_pointcloud_cli rgbd_pointcloud.cpp)
+add_executable(rgbd_pointcloud_cli src/rgbd_pointcloud.cpp)
 target_link_libraries(rgbd_pointcloud_cli PRIVATE ${OpenCV_LIBS})
 
 enable_testing()
@@ -19,7 +19,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-add_executable(test_rgbd_pointcloud_cpp test_rgbd_pointcloud.cpp)
+add_executable(test_rgbd_pointcloud_cpp tests/test_rgbd_pointcloud.cpp)
 target_link_libraries(test_rgbd_pointcloud_cpp PRIVATE ${OpenCV_LIBS} GTest::gtest_main)
 
 include(GoogleTest)

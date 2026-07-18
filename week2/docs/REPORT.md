@@ -66,13 +66,13 @@ K: fx=1, fy=1, cx=1, cy=1
 
 구현 파일은 작게 유지했다.
 
-- `rgbd_pointcloud.cpp`: OpenCV 기반 제출용 구현
-- `test_rgbd_pointcloud.cpp`: GoogleTest 제출용 unit test
+- `src/rgbd_pointcloud.cpp`: OpenCV 기반 제출용 구현
+- `tests/test_rgbd_pointcloud.cpp`: GoogleTest 제출용 unit test
 - `CMakeLists.txt`: CMake 빌드 설정
-- `rgbd_pointcloud.js`: RGB-D 로딩, depth 변환, point cloud 생성, PLY/CSV/시각화 export
-- `test_rgbd_pointcloud.js`: unit test
+- `src/rgbd_pointcloud.js`: RGB-D 로딩, depth 변환, point cloud 생성, PLY/CSV/시각화 export
+- `tests/test_rgbd_pointcloud.js`: unit test
 - `README.md`: 실행 방법
-- `REPORT.md`: 중간 보고서
+- `docs/REPORT.md`: 중간 보고서
 - `outputs/point_cloud_sample.ply`: point cloud 결과
 - `outputs/depth_preview.bmp`: depth 시각화
 - `outputs/projection_preview.bmp`: 3D point를 다시 이미지 평면에 투영한 검증 결과

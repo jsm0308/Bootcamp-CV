@@ -15,7 +15,7 @@ const {
   pixelToCamera,
   validateIntrinsics,
   writePlyAscii,
-} = require("./rgbd_pointcloud");
+} = require("../src/rgbd_pointcloud");
 
 test("golden 3x3 depth map converts known pixels into known 3D points", () => {
   const depth = Float32Array.from([1, 1, 1, 1, 2, 1, 1, 1, 0]);

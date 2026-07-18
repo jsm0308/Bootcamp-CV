@@ -1,6 +1,7 @@
 # Local toolchains and build products
 build/
 tools/
+dist/
 
 # Downloaded datasets are reproducible and too large for Git
 data/external/
@@ -16,3 +17,4 @@ outputs/**/*.bmp
 __pycache__/
 *.pyc
 ~$*.pptx
+week2_rgbd_pointcloud_submission.zip

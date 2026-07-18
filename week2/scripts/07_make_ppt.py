@@ -12,7 +12,7 @@ from pptx.util import Inches, Pt
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUTS = ROOT / "outputs" / "cpp"
-PPT_PATH = ROOT / "SUBMISSION_WEEK2_RGBD_POINTCLOUD.pptx"
+PPT_PATH = ROOT / "submission" / "SUBMISSION_WEEK2_RGBD_POINTCLOUD.pptx"
 
 NAVY = RGBColor(20, 27, 35)
 INK = RGBColor(28, 34, 41)
@@ -99,6 +99,7 @@ def add_image(slide, path, x, y, w, h):
 
 
 def make_deck():
+    PPT_PATH.parent.mkdir(parents=True, exist_ok=True)
     metrics = json.loads((OUTPUTS / "metrics_cpp.json").read_text(encoding="utf-8"))
     prs = Presentation()
     prs.slide_width = Inches(13.333)

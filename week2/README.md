@@ -22,6 +22,20 @@
 
 첫 번째 스크립트가 C++ 빌드와 GoogleTest 실행을 함께 수행한다. 두 번째는 실제 TUM 프레임을 변환하고, 세 번째는 파일 존재 여부와 수치 범위를 검증한다.
 
+## 프로젝트 구조
+
+```text
+week2/
+  src/          핵심 C++ 구현과 초기 JS 구현
+  tests/        C++ GoogleTest와 JS unit test
+  docs/         계획, 체크포인트, 보고서
+  scripts/      빌드, 실행, 검증, PPT 생성 자동화
+  outputs/      실행 결과와 시각화
+  submission/   최종 제출 자료
+```
+
+`README.md`, `CMakeLists.txt`, `.gitignore`는 프로젝트 전체를 설명하고 빌드하므로 `week2` 루트에 둔다. 현재 과제 규모에서는 `include/`나 별도 `app/` 폴더까지 나누지 않고, `main()`을 `src/rgbd_pointcloud.cpp`에 유지했다.
+
 ## 산출물
 
 - `outputs/cpp/point_cloud_sample_cpp.ply`: CloudCompare, MeshLab 등에서 열 수 있는 3D point cloud
@@ -30,7 +44,7 @@
 - `outputs/cpp/projection_preview_cpp.png`: 3D point를 2D로 재투영한 검증 이미지
 - `outputs/cpp/point_cloud_preview_cpp.png`: 정면(X-Y), 상면(X-Z) point cloud 시각화
 - `outputs/cpp/metrics_cpp.json`: 데이터, depth, sampling, 재투영 오차 지표
-- `SUBMISSION_WEEK2_RGBD_POINTCLOUD.pptx`: 제출용 5장 PPT
+- `submission/SUBMISSION_WEEK2_RGBD_POINTCLOUD.pptx`: 제출용 5장 PPT
 
 ## 현재 검증 상태
 
@@ -47,7 +61,7 @@
 
 GoogleTest는 계산 결과, 예외 처리, timestamp association, 파일 출력, 시각화 생성을 검증한다. gMock은 외부 장치·네트워크·서비스처럼 대체할 협력 객체가 없는 순수 계산 중심 구조이므로 사용하지 않았다.
 
-JS 파일은 C++ 환경 설치 전 알고리즘을 교차 검증한 초기 구현이다. 최종 제출 기준 구현은 C++/OpenCV/GoogleTest이다.
+`src/rgbd_pointcloud.js`는 C++ 환경 설치 전 알고리즘을 교차 검증한 초기 구현이다. 최종 제출 기준 구현은 `src/rgbd_pointcloud.cpp`와 `tests/test_rgbd_pointcloud.cpp`이다.
 
 ## 핵심 공식
 

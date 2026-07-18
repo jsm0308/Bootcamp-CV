@@ -555,9 +555,10 @@ function loadTumFrame(datasetDir, frameIndex, depthScale) {
 
 function runCli() {
   const args = parseArgs(process.argv.slice(2));
+  const projectRoot = path.resolve(__dirname, "..");
   const datasetDir =
-    args.dataset || path.join(__dirname, "data", "external", "tum", "rgbd_dataset_freiburg1_xyz");
-  const outputDir = args.output || path.join(__dirname, "outputs");
+    args.dataset || path.join(projectRoot, "data", "external", "tum", "rgbd_dataset_freiburg1_xyz");
+  const outputDir = args.output || path.join(projectRoot, "outputs");
   const frameIndex = Number(args["frame-index"] || 0);
   const maxPoints = Number(args["max-points"] || 60000);
   const depthScale = Number(args["depth-scale"] || 5000);

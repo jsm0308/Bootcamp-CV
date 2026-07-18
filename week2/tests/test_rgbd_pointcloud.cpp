@@ -1,5 +1,5 @@
 #define RGBD_POINTCLOUD_LIBRARY
-#include "rgbd_pointcloud.cpp"
+#include "../src/rgbd_pointcloud.cpp"
 
 #include <gtest/gtest.h>
 

@@ -86,14 +86,22 @@ Today: only this planning file.
 Implementation later should stay compact:
 
 ```text
-week 2/
-  PLAN.md
+week2/
   README.md
   CMakeLists.txt
-  rgbd_pointcloud.cpp
-  test_rgbd_pointcloud.cpp
-  data/
+  src/
+    rgbd_pointcloud.cpp
+    rgbd_pointcloud.js
+  tests/
+    test_rgbd_pointcloud.cpp
+    test_rgbd_pointcloud.js
+  docs/
+    PLAN.md
+    CHECKPOINTS.md
+    REPORT.md
+  scripts/
   outputs/
+  submission/
 ```
 
 No large file explosion. If the instructor expects a simpler format, the implementation can be reduced to one main source file plus one test file.
