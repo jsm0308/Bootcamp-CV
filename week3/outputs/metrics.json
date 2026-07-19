@@ -1,0 +1,12 @@
+{
+  "precision": 0.990604,
+  "recall": 0.984962,
+  "mAP50": 0.99082,
+  "mAP50-95": 0.794591,
+  "model": "yolov8n.pt",
+  "epochs": 30,
+  "image_size": 640,
+  "batch_size": 16,
+  "seed": 42,
+  "ultralytics_version": "8.4.100"
+}
